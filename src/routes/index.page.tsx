@@ -1,7 +1,9 @@
+import { Button } from "../components/button";
+
 export const IndexPage = () => {
   return (
     <>
-      <h1>this is the index page</h1>
+      <Button intent={"primary"}>Start game</Button>
     </>
   );
 };

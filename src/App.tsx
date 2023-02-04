@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { Route } from "./routes/route";
 
-function App() {
-  return (
-    <main>
-      <h1 className="font-bold text-6xl">Robbinghood</h1>
-    </main>
-  );
-}
-
-export default App;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Route />,
+    children: [
+      {
+        path: "",
+        element: <div>Hello</div>,
+      },
+    ],
+  },
+]);
+export const App = () => {
+  return <RouterProvider router={router} />;
+};

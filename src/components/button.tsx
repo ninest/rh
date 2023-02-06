@@ -1,12 +1,14 @@
 import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
+import { Link } from "react-router-dom";
 
 const buttonStyles = cva(
-  ["font-medium tracking-wide", "rounded-lg", "border-4"],
+  ["inline-block font-medium tracking-wide", "rounded-lg", "border-4"],
   {
     variants: {
       intent: {
         primary: ["bg-indigo-600 text-gray-200 hover:bg-indigo-500"],
+        secondary: ["bg-gray-200 text-gray-800 hover:bg-gray-300"],
       },
       outline: {
         true: "",
@@ -33,14 +35,22 @@ const buttonStyles = cva(
   }
 );
 
-type ButtonProps = VariantProps<typeof buttonStyles> & ComponentProps<"button">;
+type ButtonProps = VariantProps<typeof buttonStyles> &
+  ComponentProps<"button"> & { href?: string };
 export const Button = ({
   intent,
   outline,
   size,
+  href,
   children,
   ...props
 }: ButtonProps) => {
+  if (href)
+    return (
+      <Link to={href} className={buttonStyles({ intent, outline, size })}>
+        {children}
+      </Link>
+    );
   return (
     <button className={buttonStyles({ intent, outline, size })} {...props}>
       {children}

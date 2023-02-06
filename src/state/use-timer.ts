@@ -2,10 +2,16 @@ import { atom, useAtom } from "jotai";
 
 const daysLeftAtom = atom(0);
 
+interface StartTimerParams {
+  days: number;
+  onDayFn: () => void;
+  onEndFn: () => void;
+}
+
 export const useTimer = () => {
   const [daysLeft, setDaysLeft] = useAtom(daysLeftAtom);
 
-  const startTimer = (days: number, onEndFn: () => void) => {
+  const startTimer = ({ days, onDayFn, onEndFn }: StartTimerParams) => {
     setDaysLeft(days);
 
     const interval = setInterval(() => {
@@ -17,6 +23,7 @@ export const useTimer = () => {
         }
         return daysLeft - 1;
       });
+      onDayFn();
     }, 1000);
   };
 

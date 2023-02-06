@@ -1,8 +1,16 @@
+import { GameStatus, useGame } from "../state/game";
+import { useTimer } from "../state/timer";
+
 export const Navbar = () => {
+  const { status } = useGame();
+  const { daysLeft } = useTimer();
+
   return (
     <header className="border-b flex justify-between px-5 py-5">
       <div className="font-bold tracking-wide">Robbinghood</div>
-      <div className="tabular-nums">3:32</div>
+      {status === GameStatus.STARTED && (
+        <div className="tabular-nums">{daysLeft} days left</div>
+      )}
     </header>
   );
 };

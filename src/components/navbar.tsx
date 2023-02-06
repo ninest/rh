@@ -1,5 +1,5 @@
-import { GameStatus, useGame } from "../state/game";
-import { useTimer } from "../state/timer";
+import { GameStatus, useGame } from "../state/use-game";
+import { useTimer } from "../state/use-timer";
 
 export const Navbar = () => {
   const { status } = useGame();

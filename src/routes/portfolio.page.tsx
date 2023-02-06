@@ -1,4 +1,4 @@
-import { useGame } from "../state/game";
+import { useGame } from "../state/use-game";
 
 export const PortfolioPage = () => {
   const { status, money } = useGame();

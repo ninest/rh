@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { GameStatus, useGame } from "./game";
+import { GameStatus, useGame } from "./use-game";
 
 export const useRouteGuards = () => {
   const { status } = useGame();

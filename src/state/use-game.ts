@@ -1,5 +1,5 @@
 import { atom, useAtom } from "jotai";
-import { useTimer } from "./timer";
+import { useTimer } from "./use-timer";
 
 export enum GameStatus {
   NOT_STARTED,

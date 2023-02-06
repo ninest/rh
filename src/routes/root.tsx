@@ -1,7 +1,9 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../components/navbar";
+import { useRouteGuards } from "../state/route-guards";
 
-export const Route = () => {
+export const Root = () => {
+  useRouteGuards();
   return (
     <main>
       <Navbar />

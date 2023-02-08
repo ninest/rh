@@ -10,7 +10,7 @@ export const Debug = ({ data, className }: DebugProps) => {
       className={clsx(
         className,
         "p-2 text-xs bg-gray-900 text-gray-200 font-mono",
-        "overflow-x-scroll",
+        "overflow-x-scroll max-h-80 overflow-y-scroll",
         "rounded-md"
       )}
     >

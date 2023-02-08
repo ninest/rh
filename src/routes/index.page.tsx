@@ -9,7 +9,7 @@ export const IndexPage = () => {
       <Button
         intent={"primary"}
         onClick={() => {
-          startGame({ days: 9, money: 100 });
+          startGame({ days: 9000, money: 100 });
         }}
       >
         Start game

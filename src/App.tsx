@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { EndgamePage } from "./routes/endgame.page";
 import { IndexPage } from "./routes/index.page";
-import { PortfolioPage } from "./routes/portfolio.page";
+import { PortfolioPage } from "./routes/portfolio/portfolio.page";
 import { Root } from "./routes/root";
 
 const router = createBrowserRouter([

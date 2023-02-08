@@ -1,3 +1,5 @@
+import { round } from "../../utils/number.utils";
+
 const SECURITIES = ["STOCK", "CRYPTO"] as const;
 
 const CRYPTO_TICKERS = ["BUT", "DOG", "WTH"] as const;
@@ -14,41 +16,46 @@ export interface Security {
   values: number[];
 }
 
-export const nextValue = (stock: Security): Security => {
-  switch (stock.ticker) {
+const getLastValue = (security: Security): number => {
+  return round(security.values.at(-1) || security.startingValue);
+};
+
+export const withNextValue = (security: Security): Security => {
+  switch (security.ticker) {
     case "BUT": {
-      const lastValue = stock.values.at(-1) || stock.startingValue;
+      const lastValue = getLastValue(security);
+      const newValue = round(lastValue * 1.01);
       return {
-        ...stock,
-        values: [...stock.values, lastValue * 1.01],
+        ...security,
+        values: [...security.values, newValue],
       };
     }
     case "DOG": {
-      const lastValue = stock.values.at(-1) || 0;
+      const lastValue = getLastValue(security);
       return {
-        ...stock,
-        values: [...stock.values, lastValue + 20],
+        ...security,
+        values: [...security.values, lastValue + 20],
       };
     }
     case "WTH": {
-      const lastValue = stock.values.at(-1) || 0;
+      const lastValue = getLastValue(security);
       return {
-        ...stock,
-        values: [...stock.values, lastValue + 5],
+        ...security,
+        values: [...security.values, lastValue + 5],
       };
     }
     case "PAPL": {
-      const lastValue = stock.values.at(-1) || 0;
+      const lastValue = getLastValue(security);
       return {
-        ...stock,
-        values: [...stock.values, lastValue + 1],
+        ...security,
+        values: [...security.values, lastValue + 1],
       };
     }
     case "POOG": {
-      const lastValue = stock.values.at(-1) || 0;
+      const lastValue = getLastValue(security);
       return {
-        ...stock,
-        values: [...stock.values, lastValue + 2],
+        ...security,
+        values: [...security.values, lastValue + 2],
       };
     }
   }

@@ -1,6 +1,6 @@
-import { Stock } from "../../securities/stock";
+import { Security } from "../../securities/stock";
 
-export const SecurityListing = ({ stock }: { stock: Stock }) => {
+export const SecurityListing = ({ stock }: { stock: Security }) => {
   return (
     <div className="flex items-center justify-between">
       <div>
@@ -13,8 +13,7 @@ export const SecurityListing = ({ stock }: { stock: Stock }) => {
         {JSON.stringify(stock.values.slice(-5))}
       </div>
       <div className="bg-green-300 tabular-nums px-4 py-1 rounded-md">
-        {/* Current value */}
-        ${stock.values.at(-1) || stock.startingValue}
+        {/* Current value */}${stock.values.at(-1) || stock.startingValue}
       </div>
     </div>
   );

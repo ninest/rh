@@ -1,21 +1,17 @@
 import { atom, useAtom } from "jotai";
-import { allStocks, nextValue } from "../securities/stock";
+import { allCrypto, allStocks, nextValue } from "../securities/stock";
 
-const moneyAtom = atom(0);
-const stocksAtom = atom(allStocks);
+const securitiesAtom = atom([...allCrypto, ...allStocks]);
 
 export const useSecurities = () => {
-  const [money, setMoney] = useAtom(moneyAtom);
-  const [stocks, setStocks] = useAtom(stocksAtom);
+  const [securities, setSecurities] = useAtom(securitiesAtom);
 
   const onDay = () => {
-    setStocks((stocks) => stocks.map(nextValue));
+    setSecurities((stocks) => stocks.map(nextValue));
   };
 
   return {
-    money,
-    setMoney,
-    stocks,
+    securities,
     onDay,
   };
 };

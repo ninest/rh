@@ -1,5 +1,7 @@
 import { atom, useAtom } from "jotai";
-import { allCrypto, allStocks, withNextValue } from "../securities/stock";
+import { allCrypto } from "../securities/crypto";
+import { withNextValue } from "../securities/functions";
+import { allStocks } from "../securities/stocks";
 
 const securitiesAtom = atom([...allCrypto, ...allStocks]);
 

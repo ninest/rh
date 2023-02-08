@@ -1,4 +1,4 @@
-import { Security } from "../../securities/stock";
+import { Security } from "../../securities/types";
 
 export const SecurityListing = ({ stock }: { stock: Security }) => {
   return (

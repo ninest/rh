@@ -1,9 +1,7 @@
 import { GameStatus, useGame } from "../state/use-game";
-import { useTimer } from "../state/use-timer";
 
 export const Navbar = () => {
-  const { status } = useGame();
-  const { daysLeft } = useTimer();
+  const { status, daysLeft } = useGame();
 
   return (
     <header className="border-b flex justify-between px-5 py-5">

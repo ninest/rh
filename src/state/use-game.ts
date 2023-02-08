@@ -1,5 +1,5 @@
 import { atom, useAtom } from "jotai";
-import { nextValue, PAPL } from "../securities/stock";
+import { useSecurities } from "./use-securities";
 
 import { useTimer } from "./use-timer";
 
@@ -10,26 +10,21 @@ export enum GameStatus {
 }
 
 const statusAtom = atom(GameStatus.NOT_STARTED);
-const moneyAtom = atom(0);
-const stocksAtom = atom([PAPL]);
 
 export const useGame = () => {
-  const { startTimer } = useTimer();
+  const { startTimer, daysLeft } = useTimer();
+  const { money, setMoney, stocks, onDay } = useSecurities();
   const [status, setStatus] = useAtom(statusAtom);
-  const [money, setMoney] = useAtom(moneyAtom);
-  const [stocks, setStocks] = useAtom(stocksAtom);
 
   const startGame = ({ days, money }: { days: number; money: number }) => {
     setStatus(GameStatus.STARTED);
     startTimer({
       days,
-      onDayFn: () => {
-        setStocks((stocks) => stocks.map(nextValue));
-      },
+      onDayFn: onDay,
       onEndFn: () => setStatus(GameStatus.ENDED),
     });
     setMoney(money);
   };
 
-  return { status, startGame, money, stocks };
+  return { status, daysLeft, startGame, money, stocks };
 };

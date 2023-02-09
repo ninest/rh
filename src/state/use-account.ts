@@ -2,6 +2,8 @@ import { atom, useAtom } from "jotai";
 import { getLastValue } from "../securities/functions";
 import { Ticker } from "../securities/types";
 import { securitiesAtom, useSecurities } from "./use-securities";
+import { useTimer } from "./use-timer";
+import { useTransactions } from "./use-transaction";
 
 type Account = Partial<Record<Ticker, number>>;
 
@@ -27,6 +29,8 @@ export const useAccount = () => {
   const [account, setAccount] = useAtom(accountAtom);
   const [totalEquity] = useAtom(totalEquityAtom);
   const { securities } = useSecurities();
+  const { addTransaction } = useTransactions();
+  const { daysLeft } = useTimer();
 
   const numSharesOwned = (ticker: Ticker) => {
     return account[ticker] ?? 0;
@@ -40,6 +44,14 @@ export const useAccount = () => {
 
     setMoney(money - cost);
     setAccount({ ...account, [ticker]: newNoOfSecurityOwned });
+
+    addTransaction({
+      type: "BUY_MARKET",
+      fulfilled: true,
+      day: 0,
+      ticker,
+      amount,
+    });
   };
 
   const sellMarket = (ticker: Ticker, amount: number) => {
@@ -50,6 +62,14 @@ export const useAccount = () => {
 
     setMoney(money + cost);
     setAccount({ ...account, [ticker]: newNoOfSecurityOwned });
+
+    addTransaction({
+      type: "SELL_MARKET",
+      fulfilled: true,
+      day: 0,
+      ticker,
+      amount,
+    });
   };
 
   return {

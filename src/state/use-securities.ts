@@ -3,7 +3,7 @@ import { allCrypto } from "../securities/crypto";
 import { withNextValue } from "../securities/functions";
 import { allStocks } from "../securities/stocks";
 
-const securitiesAtom = atom([...allCrypto, ...allStocks]);
+export const securitiesAtom = atom([...allCrypto, ...allStocks]);
 
 export const useSecurities = () => {
   const [securities, setSecurities] = useAtom(securitiesAtom);

@@ -15,7 +15,14 @@ const statusAtom = atom(GameStatus.NOT_STARTED);
 export const useGame = () => {
   const { startTimer, daysLeft } = useTimer();
   const { securities, onDay } = useSecurities();
-  const { money, setMoney } = useAccount();
+  const {
+    money,
+    totalEquity,
+    setMoney,
+    numSharesOwned,
+    buyMarket,
+    sellMarket,
+  } = useAccount();
 
   const [status, setStatus] = useAtom(statusAtom);
 
@@ -29,5 +36,15 @@ export const useGame = () => {
     setMoney(money);
   };
 
-  return { status, daysLeft, startGame, money, securities };
+  return {
+    status,
+    daysLeft,
+    startGame,
+    money,
+    totalEquity,
+    securities,
+    numSharesOwned,
+    buyMarket,
+    sellMarket,
+  };
 };

@@ -1,12 +1,16 @@
 import { Security } from "../../securities/types";
+import { useGame } from "../../state/use-game";
 
 export const SecurityListing = ({ stock }: { stock: Security }) => {
+  const { numSharesOwned } = useGame();
   return (
     <div className="flex items-center justify-between">
       <div>
         <div>{stock.ticker}</div>
         {/* How many owed? */}
-        <div className="text-xs text-gray-500">X shares</div>
+        <div className="text-xs text-gray-500">
+          {numSharesOwned(stock.ticker)} shares
+        </div>
       </div>
       <div>
         {/* TODO: display chart */}

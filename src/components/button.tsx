@@ -28,7 +28,7 @@ const buttonStyles = cva(
       },
     ],
     defaultVariants: {
-      intent: "primary",
+      intent: "secondary",
       size: "default",
       outline: false,
     },

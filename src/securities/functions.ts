@@ -1,7 +1,7 @@
 import { round } from "../utils/number.utils";
 import { Security } from "./types";
 
-const getLastValue = (security: Security): number => {
+export const getLastValue = (security: Security): number => {
   return round(security.values.at(-1) || security.startingValue);
 };
 

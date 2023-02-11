@@ -39,6 +39,11 @@ export const useAccount = () => {
     const security = securities.filter((sec) => sec.ticker === ticker)[0];
     const cost = getLastValue(security) * amount;
 
+    if (cost > money) {
+      // No money to buy
+      return;
+    }
+
     const newNoOfSecurityOwned = (account[ticker] ?? 0) + amount;
 
     setMoney(money - cost);
@@ -56,6 +61,11 @@ export const useAccount = () => {
   const sellMarket = (ticker: Ticker, amount: number) => {
     const security = securities.filter((sec) => sec.ticker === ticker)[0];
     const cost = getLastValue(security) * amount;
+
+    if (numSharesOwned(ticker) <= 0) {
+      // Nothing to sell
+      return;
+    }
 
     const newNoOfSecurityOwned = (account[ticker] ?? 0) - amount;
 

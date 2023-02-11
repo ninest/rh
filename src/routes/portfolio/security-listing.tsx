@@ -20,7 +20,7 @@ export const SecurityListing = ({ stock }: { stock: Security }) => {
         {/* TODO: display chart */}
         {JSON.stringify(stock.values.slice(-5))}
       </div>
-      <div className="bg-green-300 tabular-nums px-4 py-1 rounded-md">
+      <div className="bg-green-300 font-medium text-sm min-w-[50px] text-center tabular-nums px-4 py-1 rounded-md">
         {/* Current value */}${stock.values.at(-1) || stock.startingValue}
       </div>
     </Link>

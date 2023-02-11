@@ -1,5 +1,6 @@
 import { Button } from "../../components/button";
 import { Debug } from "../../components/debug";
+import { Title } from "../../components/title";
 import { useGame } from "../../state/use-game";
 import { round } from "../../utils/number.utils";
 import { SecurityListing } from "./security-listing";
@@ -13,7 +14,7 @@ export const PortfolioPage = () => {
   return (
     <>
       <div className="p-page">
-        <div className="text-2xl tabular-nums">${round(totalEquity)}</div>
+        <Title intent="h1">${round(totalEquity)}</Title>
 
         <Debug data={{ securities }} className="my-5" />
         {/* TODO: chart */}
@@ -24,7 +25,7 @@ export const PortfolioPage = () => {
         </div>
 
         <section className="mt-5">
-          <h2 className="text-medium text-xl">Crypto</h2>
+          <Title intent="h2">Crypto</Title>
 
           <div className="divide-y">
             {crypto.map((stock) => (
@@ -35,7 +36,7 @@ export const PortfolioPage = () => {
           </div>
         </section>
         <section className="mt-5">
-          <h2 className="text-medium text-xl">Stocks</h2>
+        <Title intent="h2">Stocks</Title>
 
           <div className="divide-y">
             {stocks.map((stock) => (

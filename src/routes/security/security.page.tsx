@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/button";
 import { Debug } from "../../components/debug";
+import { Title } from "../../components/title";
 import { getLastValue } from "../../securities/functions";
 import { useGame } from "../../state/use-game";
 
@@ -17,12 +18,12 @@ export const SecurityPage = () => {
     <>
       <div className="p-page">
         <div className="text-sm">{security.ticker}</div>
-        <h1 className="text-2xl">{security.name}</h1>
+        <Title intent="h1">{security.name}</Title>
         <div className="text-2xl tabular-nums">${getLastValue(security)}</div>
 
         {/* TODO: chart */}
         <div className="mt-2">
-          <Debug data={security}/>
+          <Debug data={security} />
         </div>
 
         <section className="mt-2 flex items-center justify-between space-x-2">

@@ -1,6 +1,7 @@
 import { Button } from "../../components/button";
 import { Debug } from "../../components/debug";
 import { useGame } from "../../state/use-game";
+import { round } from "../../utils/number.utils";
 import { SecurityListing } from "./security-listing";
 
 export const PortfolioPage = () => {
@@ -12,14 +13,14 @@ export const PortfolioPage = () => {
   return (
     <>
       <div className="p-page">
-        <div className="text-2xl tabular-nums">${totalEquity}</div>
+        <div className="text-2xl tabular-nums">${round(totalEquity)}</div>
 
         <Debug data={{ securities }} className="my-5" />
         {/* TODO: chart */}
 
         <div className="flex items-center justify-between">
           <div>Buying power</div>
-          <div className="tabular-nums">${money}</div>
+          <div className="tabular-nums">${round(money)}</div>
         </div>
 
         <section className="mt-5">
@@ -29,12 +30,6 @@ export const PortfolioPage = () => {
             {crypto.map((stock) => (
               <div key={stock.ticker} className="py-2">
                 <SecurityListing stock={stock} />
-                <Button onClick={() => buyMarket(stock.ticker, 1)}>
-                  Buy 1
-                </Button>
-                <Button onClick={() => sellMarket(stock.ticker, 1)}>
-                  Sell 1
-                </Button>
               </div>
             ))}
           </div>

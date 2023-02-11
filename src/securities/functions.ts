@@ -49,8 +49,3 @@ export const withNextValue = (security: Security): Security => {
   }
   throw Error("Stock next value not implemented");
 };
-
-// Find security based on ticker
-export const findSecurityByTicker = (ticker: string) => {
-  return allSecurities.find((sec) => sec.ticker === ticker);
-};

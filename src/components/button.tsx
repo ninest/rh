@@ -1,4 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority";
+import clsx from "clsx";
 import { ComponentProps } from "react";
 import { Link } from "react-router-dom";
 
@@ -43,16 +44,18 @@ export const Button = ({
   size,
   href,
   children,
+  className,
   ...props
 }: ButtonProps) => {
+  const classes = clsx(className, buttonStyles({ intent, outline, size }));
   if (href)
     return (
-      <Link to={href} className={buttonStyles({ intent, outline, size })}>
+      <Link to={href} className={classes}>
         {children}
       </Link>
     );
   return (
-    <button className={buttonStyles({ intent, outline, size })} {...props}>
+    <button className={classes} {...props}>
       {children}
     </button>
   );

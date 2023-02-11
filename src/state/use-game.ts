@@ -14,7 +14,7 @@ const statusAtom = atom(GameStatus.NOT_STARTED);
 
 export const useGame = () => {
   const { startTimer, daysLeft } = useTimer();
-  const { securities, onDay } = useSecurities();
+  const { securities, onDay,findSecurityByTicker } = useSecurities();
   const {
     money,
     totalEquity,
@@ -46,5 +46,6 @@ export const useGame = () => {
     numSharesOwned,
     buyMarket,
     sellMarket,
+    findSecurityByTicker
   };
 };

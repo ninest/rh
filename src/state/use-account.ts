@@ -19,7 +19,6 @@ const totalEquityAtom = atom((get) => {
     const numInAccount = account[sec.ticker] ?? 0;
     total += numInAccount * getLastValue(sec);
   });
-  console.log(account);
 
   return total;
 });

@@ -3,6 +3,7 @@ import { EndgamePage } from "./routes/endgame.page";
 import { IndexPage } from "./routes/index.page";
 import { PortfolioPage } from "./routes/portfolio/portfolio.page";
 import { Root } from "./routes/root";
+import { SecurityPage } from "./routes/security/security.page";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "/portfolio",
         element: <PortfolioPage />,
+      },
+      {
+        path: "/security/:ticker",
+        element: <SecurityPage />,
       },
       {
         path: "/endgame",

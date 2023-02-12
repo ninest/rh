@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "story": "ladle serve",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
@@ -17,6 +18,7 @@
     "react-router-dom": "^6.8.0"
   },
   "devDependencies": {
+    "@ladle/react": "^2.6.2",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",

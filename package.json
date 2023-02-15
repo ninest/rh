@@ -12,13 +12,20 @@
   "dependencies": {
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
+    "d3": "^7.8.2",
+    "d3-line": "^0.0.1",
+    "d3-scale": "^4.0.2",
     "jotai": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.8.0"
+    "react-router-dom": "^6.8.0",
+    "react-use-measure": "^2.1.1"
   },
   "devDependencies": {
     "@ladle/react": "^2.6.2",
+    "@types/d3": "^7.4.0",
+    "@types/d3-scale": "^4.0.3",
+    "@types/d3-shape": "^3.1.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",

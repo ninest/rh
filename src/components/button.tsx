@@ -16,6 +16,7 @@ const buttonStyles = cva(
         false: "border-transparent",
       },
       size: {
+        sm: ["text-sm py-0.5 px-1"],
         default: ["text-base py-1 px-3"],
       },
     },

@@ -1,3 +1,5 @@
+import { Industry } from "./securities/industry";
+
 export interface DataPoint {
   value: number;
   day: number;
@@ -9,5 +11,5 @@ export type LineChartTimeDisplay =
 
 export interface Parameters {
   currentMarketLevel: number; // 0 to 1
-  currentIndustryLevels: any[];
+  currentIndustryLevels: { [key in Industry]: number };
 }

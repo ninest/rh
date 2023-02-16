@@ -1,3 +1,5 @@
+import { Industry } from "./industry";
+
 const SECURITIES = ["STOCK", "CRYPTO"] as const;
 
 const CRYPTO_TICKERS = ["BUT", "DOG", "WTH"] as const;
@@ -15,4 +17,5 @@ export interface Security {
   name: string;
   startingValue: number;
   values: number[];
+  industries: Industry[];
 }

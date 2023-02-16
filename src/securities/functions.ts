@@ -1,5 +1,6 @@
 import { allSecurities } from ".";
-import { round } from "../utils/number.utils";
+import { randomBool, round } from "../utils/number.utils";
+import { randomBetween } from "../utils/random.util";
 import { Security } from "./types";
 
 // Get most recent value of security
@@ -12,7 +13,13 @@ export const withNextValue = (security: Security): Security => {
   switch (security.ticker) {
     case "BUT": {
       const lastValue = getLastValue(security);
-      const newValue = round(lastValue * 1.01);
+
+      const randBool = randomBool();
+      const newValue = Math.max(
+        round(lastValue * (randBool ? 1.01 : 0.99)) + randomBetween(-50, 50),
+        0
+      );
+
       return {
         ...security,
         values: [...security.values, newValue],

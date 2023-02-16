@@ -24,7 +24,7 @@ export const useTimer = () => {
         return daysLeft - 1;
       });
       onDayFn();
-    }, 5000);
+    }, 1000);
   };
 
   return { daysLeft, startTimer };

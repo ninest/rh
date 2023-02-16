@@ -1,5 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/button";
+import { LineChart } from "../../components/charts/line-chart";
 import { Debug } from "../../components/debug";
 import { Title } from "../../components/title";
 import { getLastValue } from "../../securities/functions";
@@ -21,10 +22,9 @@ export const SecurityPage = () => {
         <Title intent="h1">{security.name}</Title>
         <div className="text-2xl tabular-nums">${getLastValue(security)}</div>
 
-        {/* TODO: chart */}
-        <div className="mt-2">
-          <Debug data={security} />
-        </div>
+        <LineChart
+          data={security.values.map((value, index) => ({ day: index, value }))}
+        />
 
         <section className="mt-2 flex items-center justify-between space-x-2">
           <Button
@@ -56,6 +56,11 @@ export const SecurityPage = () => {
             </div>
           </div>
         </section>
+
+        {/* TODO: chart */}
+        <div className="mt-2">
+          <Debug data={security} />
+        </div>
       </div>
     </>
   );

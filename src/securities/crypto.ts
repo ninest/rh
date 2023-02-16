@@ -6,6 +6,7 @@ export const BUT: Security = {
   name: "Butcoin",
   startingValue: 100,
   values: [],
+  industries: [],
 };
 export const DOG: Security = {
   type: "CRYPTO",
@@ -13,6 +14,7 @@ export const DOG: Security = {
   name: "Dogcoin",
   startingValue: 50,
   values: [],
+  industries: [],
 };
 export const WTH: Security = {
   type: "CRYPTO",
@@ -20,6 +22,7 @@ export const WTH: Security = {
   name: "Hellium",
   startingValue: 24,
   values: [],
+  industries: [],
 };
 
 export const allCrypto = [BUT, DOG, WTH];

@@ -11,11 +11,11 @@ export const LineChart = ({ data }: LineChartProps) => {
   const [ref, bounds] = useMeasure();
 
   const times: LineChartTimeDisplay[] = [
-    { display: "1W", days: 7, all: false },
-    { display: "1M", days: 30, all: false },
     { display: "3M", days: 90, all: false },
     { display: "6M", days: 180, all: false },
-    { display: "1Y", days: 360, all: false },
+    { display: "9M", days: 270, all: false },
+    { display: "1Y", days: 365, all: false },
+    { display: "2Y", days: 730, all: false },
     { display: "ALL", all: true },
   ];
 
@@ -60,7 +60,7 @@ const LineChartInner = ({
   data,
   timeDisplay,
 }: LineChartInner) => {
-  const margin = { top: 10, right: 10, bottom: 20, left: 24 };
+  const margin = { top: 10, right: 0, bottom: 20, left: 0 };
 
   // X: day
   const getX = (d: DataPoint) => d.day;

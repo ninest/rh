@@ -2,6 +2,7 @@ import { atom, useAtom } from "jotai";
 import { allCrypto } from "../securities/crypto";
 import { withNextValue } from "../securities/functions";
 import { allStocks } from "../securities/stocks";
+import { Parameters } from "../types";
 import { useParameters } from "./use-parameters";
 
 export const securitiesAtom = atom([...allCrypto, ...allStocks]);
@@ -16,7 +17,7 @@ export const useSecurities = () => {
 
   const onDay = () => {
     // Super hacky way to get value of parameters in a function passed to interval
-    let parameters: any;
+    let parameters: Parameters;
     setParameters((p) => {
       parameters = p;
       return p;

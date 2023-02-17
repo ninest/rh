@@ -6,8 +6,15 @@ import { round } from "../../utils/number.utils";
 import { SecurityListing } from "./security-listing";
 
 export const PortfolioPage = () => {
-  const { status, money, totalEquity, securities, buyMarket, sellMarket } =
-    useGame();
+  const {
+    status,
+    money,
+    totalEquity,
+    securities,
+    buyMarket,
+    sellMarket,
+    parameters,
+  } = useGame();
   const crypto = securities.filter((sec) => sec.type === "CRYPTO");
   const stocks = securities.filter((sec) => sec.type === "STOCK");
 
@@ -16,7 +23,7 @@ export const PortfolioPage = () => {
       <div className="p-page">
         <Title intent="h1">${round(totalEquity)}</Title>
 
-        <Debug data={{ securities }} className="my-5" />
+        <Debug data={{ parameters }} className="my-5" />
         {/* TODO: chart */}
 
         <div className="flex items-center justify-between">
@@ -36,7 +43,7 @@ export const PortfolioPage = () => {
           </div>
         </section>
         <section className="mt-5">
-        <Title intent="h2">Stocks</Title>
+          <Title intent="h2">Stocks</Title>
 
           <div className="divide-y">
             {stocks.map((stock) => (

@@ -1,5 +1,5 @@
-import { allSecurities } from ".";
-import { randomBool, round } from "../utils/number.utils";
+import { Parameters } from "../types";
+import { round } from "../utils/number.utils";
 import { randomBetween } from "../utils/random.util";
 import { Security } from "./types";
 
@@ -9,16 +9,22 @@ export const getLastValue = (security: Security): number => {
 };
 
 // Add a new value to a security
-export const withNextValue = (security: Security): Security => {
+export const withNextValue = (
+  security: Security,
+  parameters: Parameters
+): Security => {
+  const { marketLevel, industryLevels } = parameters;
+
   switch (security.ticker) {
     case "BUT": {
       const lastValue = getLastValue(security);
 
-      const randBool = randomBool();
-      const newValue = Math.max(
-        round(lastValue * (randBool ? 1.01 : 0.99)) + randomBetween(-50, 50),
-        0
-      );
+      let newValue =
+        lastValue +
+        lastValue * industryLevels.CRYPTO * 0.1 +
+        marketLevel * randomBetween(10, 50);
+
+      newValue = Math.max(newValue, 0.01);
 
       return {
         ...security,

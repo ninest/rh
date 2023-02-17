@@ -34,6 +34,7 @@ export const LineChart = ({ data }: LineChartProps) => {
       <div className="flex space-x-2 justify-end">
         {times.map((timeDisplay, index) => (
           <button
+            key={index}
             className={clsx("text-xs font-semibold py-0.5 px-1 rounded-md", {
               "bg-green-500 text-white": selectedTimeDisplay === index,
               "text-green-500": selectedTimeDisplay !== index,

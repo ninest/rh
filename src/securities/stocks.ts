@@ -6,7 +6,7 @@ export const PAPL: Security = {
   name: "Pineapple",
   startingValue: 1,
   values: [],
-  industries:['INFORMATION_TECHNOLOGY']
+  industries: ["INFORMATION_TECHNOLOGY", "CONSUMER_DISCRETIONARY"],
 };
 export const POOG: Security = {
   type: "STOCK",
@@ -14,7 +14,7 @@ export const POOG: Security = {
   name: "Poogle",
   startingValue: 4,
   values: [],
-  industries:['COMMUNICATION_SERVICES']
+  industries: ["COMMUNICATION_SERVICES"],
 };
 
 export const allStocks = [PAPL, POOG];

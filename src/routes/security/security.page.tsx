@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { Button } from "../../components/button";
 import { LineChart } from "../../components/charts/line-chart";
 import { Debug } from "../../components/debug";
@@ -13,7 +13,7 @@ export const SecurityPage = () => {
     useGame();
   const security = findSecurityByTicker(ticker!);
 
-  if (!security) return navigate("/portfolio");
+  if (!security) return <Navigate to={"/portfolio"} />;
 
   return (
     <>

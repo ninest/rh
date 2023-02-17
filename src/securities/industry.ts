@@ -10,6 +10,7 @@ const INDUSTRY_KEYS = [
   "INFORMATION_TECHNOLOGY",
   "COMMUNICATION_SERVICES",
   "REAL_ESTATE",
+  "CRYPTO",
 ] as const;
 export type Industry = typeof INDUSTRY_KEYS[number];
 
@@ -30,4 +31,5 @@ export const allIndustries: IndustryInfo[] = [
   { key: "INFORMATION_TECHNOLOGY", name: "Information Technology" },
   { key: "COMMUNICATION_SERVICES", name: "Communication Services" },
   { key: "REAL_ESTATE", name: "Real Estate" },
+  { key: "CRYPTO", name: "Cryptocurrency" },
 ];

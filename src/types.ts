@@ -10,6 +10,6 @@ export type LineChartTimeDisplay =
   | { display: string; all: true };
 
 export interface Parameters {
-  currentMarketLevel: number; // 0 to 1
-  currentIndustryLevels: { [key in Industry]: number };
+  marketLevel: number; // 0 to 1
+  industryLevels: { [key in Industry]: number };
 }
